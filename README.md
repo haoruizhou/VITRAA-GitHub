@@ -1,6 +1,8 @@
 # VITRAA - Visualized Interactive Toronto Rapid-Transit Accessibility Analysis 
 
 For Esri Canada ECCE App Challenge 2025
+<img width="1673" alt="thumbnail" src="https://github.com/user-attachments/assets/26499c58-950f-4ef0-912c-c63f17ea1638" />
+
 
 ## **Mission Statement**
 
