@@ -1,0 +1,67 @@
+```{r}
+library(cancensus)
+library(sf)
+library(dplyr)
+options(cancensus.api_key = "YOUR API KEY")
+set_cancensus_cache_path("cache", install = TRUE, overwrite = TRUE)
+```
+
+
+```{r}
+library(cancensus)
+list_census_vectors(dataset = "CA21")
+
+# save csv
+census_vectors <- list_census_vectors(dataset = "CA21")
+write.csv(census_vectors, "census_vectors.csv", row.names = FALSE)
+```
+
+
+```{r}
+# Define the Toronto region using its Census Subdivision (CSD) code
+toronto_region <- list(CSD = "3520005")
+
+# Define the journey-to-work variable codes of interest (from your provided list)
+journey_vars <- c(
+  "v_CA21_818", # Median income
+  
+  "v_CA21_7635",  # Total - Car, truck or van
+  "v_CA21_7636",  # Male - Car, truck or van
+  "v_CA21_7637",  # Female - Car, truck or van
+  "v_CA21_7638",  # Total - Car, truck or van - as a driver
+  "v_CA21_7639",  # Male - Car, truck or van - as a driver
+  "v_CA21_7640",  # Female - Car, truck or van - as a driver
+  "v_CA21_7641",  # Total - Car, truck or van - as a passenger
+  "v_CA21_7642",  # Male - Car, truck or van - as a passenger
+  "v_CA21_7643",  # Female - Car, truck or van - as a passenger
+  "v_CA21_7644",  # Total - Public transit
+  "v_CA21_7645",  # Male - Public transit
+  "v_CA21_7646",  # Female - Public transit
+  "v_CA21_7647",  # Total - Walked
+  "v_CA21_7648",  # Male - Walked
+  "v_CA21_7649",  # Female - Walked
+  "v_CA21_7650",  # Total - Bicycle
+  "v_CA21_7651",  # Male - Bicycle
+  "v_CA21_7652",  # Female - Bicycle
+  "v_CA21_7653",  # Total - Other method
+  "v_CA21_7654",  # Male - Other method
+  "v_CA21_7655"   # Female - Other method
+)
+
+# Retrieve DA-level Census 2021 data for Toronto with spatial geometry
+toronto_DA <- get_census(
+  dataset = "CA21",         # 2021 Census Profile dataset
+  regions = toronto_region, # Toronto defined by CSD "3520005"
+  level = "DA",             # Dissemination Areas
+  vectors = journey_vars,
+  geo_format = "sf"         # Return as an sf object (with spatial geometry)
+)
+
+# Display the first few rows of the retrieved dataset
+head(toronto_DA)
+```
+
+```{r}
+# save to geojson
+write_sf(toronto_DA, "toronto_DA.geojson", driver = "GeoJSON")
+```
