@@ -1,6 +1,9 @@
 # VITRAA - Visualized Interactive Toronto Rapid-Transit Accessibility Analysis 
 
 For Esri Canada ECCE App Challenge 2025
+Group Members: James Brackett, Alex Logan, Haorui Zhou
+Western University, Canada
+
 <img width="1673" alt="thumbnail" src="https://github.com/user-attachments/assets/26499c58-950f-4ef0-912c-c63f17ea1638" />
 
 
@@ -20,7 +23,7 @@ As the cost of living escalates, a growing number of individuals and families ar
 
 1. **User-Centric Analysis:** The app provides insights into how transit accessibility impacts commuting behavior, emphasizing equitable access for diverse socioeconomic groups.
 2. **Data-Driven Insights:** By leveraging detailed Census data, the analysis quantifies the relationship between transit proximity and mode choice.
-3. **Sustainability Focus:** The study underlines how improved transit accessibility can reduce dependency on private vehicles, lower greenhouse gas emissions, and promote sustainable urban mobility.
+3. **Sustainability Focus:** The study connects to the greater idea of how improved transit accessibility can reduce dependency on private vehicles, lower greenhouse gas emissions, and promote sustainable urban mobility. This focus aligns with Canada’s sustainability goal of achieving net-zero emissions by 2050 and fostering environmentally responsible urban development.
 4. **Reproducible Research:** The organized R code and data retrieval process ensure that the methodology is transparent and reproducible for future studies or policy development.
 
 
